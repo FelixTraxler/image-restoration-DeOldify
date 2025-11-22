@@ -158,10 +158,11 @@ class ModelImageVisualizer:
             display_render_factor=display_render_factor,
         )
 
-    def _save_result_image(self, source_path: Path, image: Image, results_dir = None) -> Path:
+    def _save_result_image(self, source_path: Path, image: Image, results_dir=None) -> Path:
         if results_dir is None:
             results_dir = Path(self.results_dir)
-        result_path = results_dir / source_path.name
+
+        result_path = results_dir / f"{source_path.stem}_DeOldify.png"
         image.save(result_path)
         return result_path
 
